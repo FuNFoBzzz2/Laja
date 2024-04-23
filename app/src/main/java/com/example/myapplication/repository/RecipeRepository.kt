@@ -18,4 +18,7 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
     suspend fun deleteAllRecipe(){
         recipeDao.deleteALLRecipe()
     }
+    fun isImage(imagePath: String?): Boolean {
+        return recipeDao.isImage(imagePath)
+    }
 }

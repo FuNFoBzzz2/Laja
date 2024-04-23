@@ -2,26 +2,46 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rowLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15sp"
     android:layout_margin="10sp"
-    android:id="@+id/rowLayout">
-
-    <TextView
-        android:id="@+id/txtname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@color/Grey"
+    android:padding="15sp">
 
     <TextView
         android:id="@+id/txtdiscription"
-        android:layout_width="361dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="369dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/Dark"
+        android:padding="5sp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/txtname"
+        android:textColor="@color/Orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtname" />
+
+    <TextView
+        android:id="@+id/txtname"
+        android:layout_width="223dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/Dark"
+        android:padding="5sp"
+        android:text="TextView"
+        android:textColor="@color/Orange"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="123dp"
+        android:layout_height="106dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

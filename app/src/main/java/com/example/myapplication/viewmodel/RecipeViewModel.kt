@@ -35,6 +35,9 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
             repositoryRecipe.deleteRecipe(recipe)
         }
     }
+    fun isImage(imagePath: String?): Boolean {
+        return repositoryRecipe.isImage(imagePath)
+    }
     fun deleteAllRecipe(){
         viewModelScope.launch(Dispatchers.IO){
             repositoryRecipe.deleteAllRecipe()

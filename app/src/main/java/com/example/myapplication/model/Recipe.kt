@@ -11,6 +11,6 @@ data class Recipe(
     @PrimaryKey(autoGenerate = true)
     var IDRecipe: Int,//? = null,
     var RecipeName: String,
-    //var Image: String?,
+    var Image: String?,
     var Discription: String
 ): Parcelable

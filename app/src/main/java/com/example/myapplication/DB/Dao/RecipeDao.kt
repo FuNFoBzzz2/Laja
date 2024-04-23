@@ -23,6 +23,8 @@ interface RecipeDao {
     @Query("DELETE FROM Recipe")
     suspend fun deleteALLRecipe()
 
+    @Query("SELECT COUNT(*) FROM Recipe WHERE Image = :imagePath")
+    fun isImage(imagePath: String?): Boolean
     @Query("Select * from Recipe ORDER BY IDRecipe ASC")
     fun readAllRecipe(): LiveData<List<Recipe>>
 

@@ -9,7 +9,7 @@ import com.example.myapplication.model.Recipe
 
 @Database(
     entities = [Recipe::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class RecipeDataBase: RoomDatabase() {

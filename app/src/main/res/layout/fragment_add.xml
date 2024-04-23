@@ -8,12 +8,15 @@
 
     <EditText
         android:id="@+id/txtdiscription"
-        android:layout_width="396dp"
-        android:layout_height="185dp"
+        android:layout_width="348dp"
+        android:layout_height="187dp"
         android:layout_marginTop="12dp"
+        android:background="@color/Grey"
         android:ems="10"
+        android:padding="5sp"
         android:inputType="text"
         android:text=""
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,24 +24,42 @@
 
     <EditText
         android:id="@+id/txtname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_width="212dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/Grey"
+        android:padding="5sp"
         android:ems="10"
         android:inputType="text"
         android:text=""
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgbtn" />
 
     <Button
         android:id="@+id/buttonadd"
         android:layout_width="179dp"
         android:layout_height="52dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="@color/Orange"
         android:text="Добавить"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtdiscription" />
+
+    <ImageButton
+        android:id="@+id/imgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="200dp"
+        android:minWidth="200dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
