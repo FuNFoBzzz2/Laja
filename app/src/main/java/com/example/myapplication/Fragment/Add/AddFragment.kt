@@ -11,10 +11,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.myapplication.DB.Recipe
-import com.example.myapplication.DB.RecipeViewModel
+import com.example.myapplication.model.Recipe
+import com.example.myapplication.viewmodel.RecipeViewModel
 import com.example.myapplication.R
-import java.util.jar.Attributes.Name
 
 class AddFragment : Fragment() {
 

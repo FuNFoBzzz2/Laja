@@ -3,10 +3,11 @@ package com.example.myapplication.Fragment.List
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.DB.Recipe
+import com.example.myapplication.model.Recipe
 import com.example.myapplication.R
 
 class ListAdapter(private var recipeList: List<Recipe>) : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -30,6 +31,11 @@ class ListAdapter(private var recipeList: List<Recipe>) : RecyclerView.Adapter<L
         val currentItem = recipeList[position]
         holder.itemView.findViewById<TextView>(R.id.txtname).setText(currentItem.RecipeName)
         holder.itemView.findViewById<TextView>(R.id.txtdiscription).setText(currentItem.Discription)
+
+        holder.itemView.findViewById<ConstraintLayout>(R.id.rowLayout).setOnClickListener{
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
     fun setData(recipe: List<Recipe>) {
         this.recipeList = recipe

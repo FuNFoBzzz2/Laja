@@ -11,8 +11,6 @@ import android.view.View
 
 import android.view.ViewGroup
 
-import android.widget.Button
-
 import androidx.lifecycle.Observer
 
 import androidx.lifecycle.ViewModelProvider
@@ -20,7 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.DB.RecipeViewModel
+import com.example.myapplication.viewmodel.RecipeViewModel
 import com.example.myapplication.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 

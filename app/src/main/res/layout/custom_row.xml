@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="15sp"
-    android:layout_margin="10sp">
+    android:layout_margin="10sp"
+    android:id="@+id/rowLayout">
 
     <TextView
         android:id="@+id/txtname"
