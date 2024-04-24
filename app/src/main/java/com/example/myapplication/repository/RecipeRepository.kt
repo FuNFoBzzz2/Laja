@@ -3,6 +3,7 @@ package com.example.myapplication.repository
 import androidx.lifecycle.LiveData
 import com.example.myapplication.DB.Dao.RecipeDao
 import com.example.myapplication.model.Recipe
+import kotlinx.coroutines.flow.Flow
 
 class RecipeRepository(private val recipeDao: RecipeDao) {
     val readAllRecipe: LiveData<List<Recipe>> = recipeDao.readAllRecipe()
@@ -20,5 +21,8 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
     }
     fun isImage(imagePath: String?): Boolean {
         return recipeDao.isImage(imagePath)
+    }
+    fun searchrecipr(query: String): Flow<List<Recipe>> {
+        return recipeDao.searchrecipe(query)
     }
 }

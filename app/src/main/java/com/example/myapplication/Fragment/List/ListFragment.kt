@@ -10,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.SearchView
 
 import androidx.lifecycle.Observer
 
@@ -42,6 +44,7 @@ class ListFragment : Fragment() {
         view.findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
+        view.findViewById<ImageButton>(R.id.searchViewList).setOnClickListener{findNavController().navigate(R.id.action_listFragment_to_searchFragment)}
         return view
     }
 }

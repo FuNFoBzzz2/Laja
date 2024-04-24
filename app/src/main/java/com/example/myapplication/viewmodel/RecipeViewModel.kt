@@ -8,6 +8,7 @@ import com.example.myapplication.DB.RecipeDataBase
 import com.example.myapplication.repository.RecipeRepository
 import com.example.myapplication.model.Recipe
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
@@ -37,6 +38,9 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     }
     fun isImage(imagePath: String?): Boolean {
         return repositoryRecipe.isImage(imagePath)
+    }
+    fun searchrecipe(query: String): Flow<List<Recipe>> {
+        return repositoryRecipe.searchrecipr(query)
     }
     fun deleteAllRecipe(){
         viewModelScope.launch(Dispatchers.IO){
