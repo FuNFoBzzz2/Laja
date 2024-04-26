@@ -8,6 +8,8 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.text.Editable
+import android.text.SpannableStringBuilder
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +24,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -41,6 +44,7 @@ class UpdateFragment : Fragment() {
     private lateinit var RViewModel: RecipeViewModel
     private var currentImagePath: String? = null
     private lateinit var imageButton: ImageButton
+    private lateinit var goback: ImageButton
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,9 +52,16 @@ class UpdateFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_update, container, false)
         RViewModel = ViewModelProvider(this).get(com.example.myapplication.viewmodel.RecipeViewModel::class.java)
+
         view.findViewById<EditText>(R.id.txtnameupdate).setText(args.currentRecipe.RecipeName)
+
         view.findViewById<EditText>(R.id.txtdiscriptionupdate).setText(args.currentRecipe.Discription)
+
         view.findViewById<ImageButton>(R.id.imgbtn).setImageBitmap(BitmapFactory.decodeFile(args.currentRecipe.Image))
+
+        goback = view.findViewById<ImageButton>(R.id.goback)
+        goback.setOnClickListener{findNavController().navigate(R.id.action_updateFragment_to_listFragment)}
+
         view.findViewById<Button>(R.id.buttondelete).setOnClickListener{
             deleteRecipe() }
         view.findViewById<Button>(R.id.buttonaddupdate).setOnClickListener{
@@ -117,7 +128,7 @@ class UpdateFragment : Fragment() {
         val inputStream = requireActivity().contentResolver.openInputStream(uri)
         return inputStream?.use { stream ->
             val selectedImageBitmap = BitmapFactory.decodeStream(stream)
-            // Масштабирование изображения до 215x215 пикселей
+
             val scaledBitmap = Bitmap.createScaledBitmap(selectedImageBitmap, 500, 500, false)
             val storageDir = File(
                 requireActivity().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS),

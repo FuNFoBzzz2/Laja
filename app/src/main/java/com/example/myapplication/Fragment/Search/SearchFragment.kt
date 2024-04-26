@@ -12,6 +12,7 @@ import android.widget.ImageButton
 import android.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.util.query
@@ -40,13 +41,12 @@ class SearchFragment : Fragment() {
         // Установка фокуса на EditText для начала ввода поискового запроса
         val searchInput = view.findViewById<EditText>(R.id.editTextText)
         searchInput.requestFocus()
+
         // Обновление списка при изменении текста в EditText\
         searchInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                // Ничего не делаем
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Ничего не делаем
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val searchText = s.toString().trim()

@@ -31,10 +31,11 @@
 
     <ImageButton
         android:id="@+id/searchViewList"
-        android:src="@drawable/ic_search"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@color/Orange"
+        android:foregroundGravity="top"
+        android:src="@drawable/ic_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

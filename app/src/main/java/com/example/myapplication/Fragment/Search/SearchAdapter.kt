@@ -35,11 +35,11 @@ class SearchAdapter (private var RecipeViewModel: RecipeViewModel) : RecyclerVie
             val descriptionTextView = findViewById<TextView>(R.id.txtdiscription)
             textViewLimit(descriptionTextView, currentItem.Discription, descriptionLengthLimit)
 
-//            //Передача элемента на окно обновления
-//            findViewById<ConstraintLayout>(R.id.rowLayout).setOnClickListener {
-//                val action = SearchFragmentDirections.actionSearchFragmentToUpdateFragment(currentItem)
-//                findNavController().navigate(action)
-//            }
+            //Передача элемента на окно обновления
+            findViewById<ConstraintLayout>(R.id.rowLayout).setOnClickListener {
+                val action = SearchFragmentDirections.actionSearchFragmentToUpdateFragment(currentItem)
+                findNavController().navigate(action)
+            }
         }
     }
 

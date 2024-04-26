@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.model.Recipe
 import com.example.myapplication.viewmodel.RecipeViewModel
@@ -34,6 +35,7 @@ class AddFragment : Fragment() {
     private lateinit var RViewModel: RecipeViewModel
     private var currentImagePath: String? = null
     private lateinit var imageButton: ImageButton
+    private lateinit var goback: ImageButton
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,6 +47,8 @@ class AddFragment : Fragment() {
         view.findViewById<Button>(R.id.buttonadd).setOnClickListener {
             insertDataToDataBase()
         }
+        goback = view.findViewById<ImageButton>(R.id.goback)
+        goback.setOnClickListener{findNavController().navigate(R.id.action_addFragment_to_listFragment)}
         imageButton = view.findViewById<ImageButton>(R.id.imgbtn)
         imageButton.setOnClickListener {
             ImageSelection()
@@ -106,7 +110,6 @@ class AddFragment : Fragment() {
         val inputStream = requireActivity().contentResolver.openInputStream(uri)
         return inputStream?.use { stream ->
             val selectedImageBitmap = BitmapFactory.decodeStream(stream)
-            // Масштабирование изображения до 215x215 пикселей
             val scaledBitmap = Bitmap.createScaledBitmap(selectedImageBitmap, 450, 450, false)
             val storageDir = File(
                 requireActivity().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS),
