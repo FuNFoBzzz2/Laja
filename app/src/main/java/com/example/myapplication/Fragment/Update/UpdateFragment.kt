@@ -156,11 +156,15 @@ class UpdateFragment : Fragment() {
             Toast.makeText(requireContext(), "Обновление прошло успешно!",Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         }else{
-            Toast.makeText(requireContext(), "Возникла ошибка",Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Убедитесь что все поля заполнены!",Toast.LENGTH_SHORT).show()
         }
     }
     private fun inputCheck(RName: String, RDiscription: String): Boolean {
-        return !(TextUtils.isEmpty(RName) &&  TextUtils.isEmpty(RDiscription))
+        var oo = false
+        if (RName.isNotEmpty() &&  RDiscription.isNotEmpty()){
+            oo = true
+        }
+        return oo
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
