@@ -1,8 +1,10 @@
 package com.example.myapplication.Fragment.Search
 
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
@@ -35,6 +37,8 @@ class SearchAdapter (private var RecipeViewModel: RecipeViewModel) : RecyclerVie
             val descriptionTextView = findViewById<TextView>(R.id.txtdiscription)
             textViewLimit(descriptionTextView, currentItem.Discription, descriptionLengthLimit)
 
+            val img = findViewById<ImageView>(R.id.imageView)
+            img.setImageBitmap(BitmapFactory.decodeFile(currentItem.Image))
             //Передача элемента на окно обновления
             findViewById<ConstraintLayout>(R.id.rowLayout).setOnClickListener {
                 val action = SearchFragmentDirections.actionSearchFragmentToUpdateFragment(currentItem)

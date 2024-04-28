@@ -58,6 +58,7 @@ class UpdateFragment : Fragment() {
         view.findViewById<EditText>(R.id.txtdiscriptionupdate).setText(args.currentRecipe.Discription)
 
         view.findViewById<ImageButton>(R.id.imgbtn).setImageBitmap(BitmapFactory.decodeFile(args.currentRecipe.Image))
+        currentImagePath = args.currentRecipe.Image
 
         goback = view.findViewById<ImageButton>(R.id.goback)
         goback.setOnClickListener{findNavController().navigate(R.id.action_updateFragment_to_listFragment)}
@@ -74,7 +75,9 @@ class UpdateFragment : Fragment() {
         return view
     }
     private fun ImageSelection() {
-        replaceCurrentImage(currentImagePath)
+        if(currentImagePath == null) {
+            replaceCurrentImage(currentImagePath)
+        }
         openGalleryForImage()
     }
     private fun replaceCurrentImage(imagePath: String?) {
