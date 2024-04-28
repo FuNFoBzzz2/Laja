@@ -139,6 +139,10 @@ class AddFragment : Fragment() {
     }
 
     private fun inputCheck(name: String, discription: String): Boolean {
-        return !(TextUtils.isEmpty(name) &&  TextUtils.isEmpty(discription))
+        var oo = false
+            if (TextUtils.isEmpty(name) &&  TextUtils.isEmpty(discription)){
+            oo = true
+        }
+        return oo
     }
 }

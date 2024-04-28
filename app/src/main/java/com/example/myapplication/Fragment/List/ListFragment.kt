@@ -41,6 +41,7 @@ class ListFragment : Fragment() {
         recipeViewModel.readAllRecipe.observe(viewLifecycleOwner, Observer { recipe ->
             adapter.setData(recipe)
         })
+
         view.findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
